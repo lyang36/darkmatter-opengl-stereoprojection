@@ -102,3 +102,12 @@ void DataReader::close(){
     buffer = NULL;
     dataInputFile.close();
 }
+
+
+Particles * DataReader::getBuf(){
+    return buffer;
+}
+
+unsigned int DataReader::getBufSize(){
+    return memParts;
+}

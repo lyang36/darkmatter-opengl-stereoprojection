@@ -5,6 +5,9 @@
  * use it untill done
  * Lin Yang 06/05/2012
  */
+
+#ifndef __LY__DATAREADER__
+#define __LY__DATAREADER__
 #include "types.h"
 #include <string>
 #include <fstream>
@@ -22,9 +25,11 @@ private:
     unsigned int memParts;   //particles in membuffer
     Particles * buffer; //particle buffer
     ifstream dataInputFile;//input stream    
-    void loadBuffer();      //load buffer
 public:
     DataReader(string path); //set path
+    void loadBuffer();      //load buffer
+    Particles * getBuf();   //get buffer
+    unsigned int getBufSize(); //get mparts
     bool open();    //open the file and load the buffer
     bool isOpen();  //check is open?
     void setBuf(unsigned int mem);    //set up the buffer
@@ -32,4 +37,4 @@ public:
     bool readParticle(Particles * part);   //read a particle from the file
     void close();
 };
-
+#endif

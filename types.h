@@ -6,6 +6,8 @@
 
 #define REAL double
 #define Real REAL
+
+#define PI 3.141592653589793
 //48 bytes
 struct Particles{
     REAL mass;
@@ -23,5 +25,10 @@ struct Circle{
     int xc;
     int yc;
     REAL flux;
+};
+
+struct Point{
+    REAL pos[3];
+    REAL color[4];
 };
 #endif
