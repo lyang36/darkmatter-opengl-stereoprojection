@@ -8,7 +8,7 @@ using namespace std;
 
 CircleConverter::CircleConverter(){
     radius = 32;
-    f0 = 1.83e-12;
+    f0 = 1.83e-8;
     dr = PI/720;
     quadratic = NULL;
 }
@@ -141,9 +141,9 @@ bool CircleConverter::convert_lower(){
     //<< part->ypos << " " << part->zpos << endl;
     
     getangle();
+    pointList.clear();
     //cout << "theta " << theta << endl;
     if(theta < PI/2) {
-        pointList.clear();
         return false; //upsphere  
     }
     REAL rr = 0;
@@ -164,9 +164,9 @@ bool CircleConverter::convert_lower(){
         tempoint.pos[0] = pxc * radius;
         tempoint.pos[1] = pyc * radius;
         tempoint.pos[2] = zz;
-        tempoint.color[0] = 0;
-        tempoint.color[1] = 0;
-        tempoint.color[2] = 0;
+        tempoint.color[0] = 1;
+        tempoint.color[1] = 1;
+        tempoint.color[2] = 1;
         tempoint.color[3] = al;
         pointList.push_back(tempoint);
     }

@@ -14,6 +14,14 @@ DataReader::DataReader(string path){
     buffer = NULL;
 }
 
+DataReader::DataReader(){
+    DataReader("");
+}
+
+void DataReader::setPath(string path){
+    filePath = path;
+}
+
 //open the file and load buffer
 bool DataReader::open(){
     readCursor = 0;

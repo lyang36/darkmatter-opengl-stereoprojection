@@ -1,7 +1,10 @@
 CC=g++
+#MACOS
+LFLAGS=-framework Carbon -framework OpenGL -framework GLUT
+
 
 all: obj
-	$(CC) --link *.o -o dmvis
+	$(CC) --link *.o -o dmvis $(LFLAGS)
 	@echo success
 
 obj:

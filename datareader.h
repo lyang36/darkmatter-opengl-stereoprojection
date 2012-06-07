@@ -27,6 +27,8 @@ private:
     ifstream dataInputFile;//input stream    
 public:
     DataReader(string path); //set path
+    DataReader();
+    void setPath(string path);         //set path
     void loadBuffer();      //load buffer
     Particles * getBuf();   //get buffer
     unsigned int getBufSize(); //get mparts

@@ -13,15 +13,24 @@
 #include "Parameter.h"
 #include "datareader.h"
 #include "converter.h"
+#include "pointSprite.h"
 
 //#include "Skymap.h"
 
 using namespace std;
 
-int main(){
+int main(int argc, char** argv){
     Parameter params;
     params.readParameter();
-    DataReader reader(params.DATAFILE);
+    
+    pointSprite sprite;
+    sprite.reader.setPath(params.DATAFILE);
+    REAL opos[] = {params.oposx, params.oposy, params.oposz};
+    REAL vpos[] = {params.vposx, params.vposy, params.vposz};
+    sprite.converter.setPos(vpos, opos);
+    sprite.startDisplay(argc, argv);
+    
+/*     DataReader reader(params.DATAFILE);
     Particles part;
     reader.setBuf(10);
     reader.open();
@@ -29,7 +38,7 @@ int main(){
     REAL q[] ={1.0, 0.0, 1.0};
     converter.setQuadratic(q);
     
-    while(reader.hasNext()){
+   while(reader.hasNext()){
         reader.readParticle(&part);
         cout << part.mass << " " << part.density << " "
             << part.hsmooth << " " << part.xpos << " "
@@ -55,8 +64,9 @@ int main(){
         " color1: " << (*vv)[i].color[0] << " color2: " << (*vv)[i].color[1] 
         << " color3: " << (*vv)[i].color[2] << " color4: " << (*vv)[i].color[3]<< endl ;
     }
-    
+ 
     reader.close();
+ */
     /*cout << "CPU_MEM " << params.CPU_MEM << endl;
     cout << "FLUXFACTOR " << params.FLUXFACTOR << endl;
     cout << "GRAPHSIZE " << params.GRAPHSIZE << endl;
